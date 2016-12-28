@@ -5,14 +5,14 @@ def mse(w, features, target):
 	for i in range(len(features)): 
 		s += (pow((np.dot(features[i], w) - target[i]), 2))
 	s = s / (float(len(features) - 2))
-	print(s)
 	s = np.sqrt(s)
 	return s
 
 def predict(sample, w):
 	return np.dot(sample, w)
 
-def gradient_descent(a, w, x, y, m, num_iter): 
+def gradient_descent(a, x, y, m, num_iter): 
+	w = np.matrix(x.shape[1] * [0.0]).T
 	for i in range(num_iter): 
 		for j in range(len(x)):
 			# Calculate Hypothesis
@@ -25,7 +25,7 @@ def gradient_descent(a, w, x, y, m, num_iter):
 			# Update Weight
 			w = w - a * grad
 	return w
-
+3
 
 
 
