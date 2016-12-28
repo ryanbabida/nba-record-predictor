@@ -25,7 +25,6 @@ def gradient_descent(a, x, y, m, num_iter):
 			# Update Weight
 			w = w - a * grad
 	return w
-3
 
 
 

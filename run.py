@@ -19,6 +19,8 @@ print(mse(w, features, target))
 features, target = load_test()
 for i in range(len(w)): 
 	print(w[i], b[i])
+
+print('Testing: ')
 for i in range(len(features)): 
 	print(predict(features[i], w), target[i])
 
