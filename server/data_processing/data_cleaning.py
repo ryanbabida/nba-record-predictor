@@ -41,12 +41,12 @@ def load_data():
 				'Washington Wizards\n',
 	]
 	# Create data file
-	data = open('data/data.csv', 'w+')
+	data = open('data_processing/data/data.csv', 'w+')
 	data.write("GP,W,L,WIN%,MIN,PTS,FGM,FGA,FG%,3PM,3PA,3P%,FTM,FTA,FT%,OREB,DREB,REB,AST,TOV,STL,BLK,BLKA,PF,PFD,+/-\n")
-	data = open('data/data.csv', 'a+')
+	data = open('data_processing/data/data.csv', 'a+')
 
 	# Push all the statistics from seasons 1997-1998 into one file for analysis
-	for filename in glob.glob('data/' + '*-*.csv'):
+	for filename in glob.glob('data_processing/data/' + '*-*.csv'):
 		print(filename)
 		inf = open(filename, 'r')
 		for line in inf.readlines():
@@ -55,16 +55,16 @@ def load_data():
 		data.write('\n')
 	data.close()
 
-	data = np.genfromtxt('data/data.csv', dtype=float, delimiter=',', names=True)
+	data = np.genfromtxt('data_processing/data/data.csv', dtype=float, delimiter=',', names=True)
 
-	features = np.matrix([data['MIN'], data['FGM'], data['FGA'], data['FG'], data['3PM'], data['3PA'], 
+	features = np.matrix([data['MIN'], data['PTS'], data['FGM'], data['FGA'], data['FG'], data['3PM'], data['3PA'], 
 				data['3P'], data['FTM'], data['FTA'], data['FT'], data['OREB'], data['DREB'], 
 				data['REB'], data['AST'], data['TOV'], data['STL'], data['BLK'], data['BLKA'], 
-				data['PF'], data['PFD'], data['PTS'], data['f0']]).T
+				data['PF'], data['PFD'], data['f0']]).T
 	target = np.matrix(data['WIN'])
 	target = target.T
 
-	return features, target
+	return features, target, data.dtype.names
 
 3
 def load_test():
@@ -107,27 +107,33 @@ def load_test():
 				'Washington Wizards\n',
 	]
 	# Create data file
-	data = open('data/test.csv', 'w+')
+	data = open('data_processing/data/test.csv', 'w+')
 	data.write("GP,W,L,WIN%,MIN,PTS,FGM,FGA,FG%,3PM,3PA,3P%,FTM,FTA,FT%,OREB,DREB,REB,AST,TOV,STL,BLK,BLKA,PF,PFD,+/-\n")
-	data = open('data/test.csv', 'a+')
+	data = open('data_processing/data/test.csv', 'a+')
+
+	team_names = list()
 
 	# Push all the statistics from seasons 1997-1998 into one file for analysis
-	for filename in glob.glob('data/' + 'testset.csv'):
+	for filename in glob.glob('data_processing/data/' + 'testset.csv'):
 		print(filename)
 		inf = open(filename, 'r')
 		for line in inf.readlines():
 			if line not in teams and 'GP' not in line and line != '' and len(line) > 5: 
 				data.write(line)
+			if line in teams: 
+				team_names.append(line.strip('\n'))
 		data.write('\n')
 	data.close()
 
-	data = np.genfromtxt('data/test.csv', dtype=float, delimiter=',', names=True)
+	data = np.genfromtxt('data_processing/data/test.csv', dtype=float, delimiter=',', names=True)
 
-	features = np.matrix([data['MIN'], data['FGM'], data['FGA'], data['FG'], data['3PM'], data['3PA'], 
+	features = np.matrix([data['MIN'], data['PTS'], data['FGM'], data['FGA'], data['FG'], data['3PM'], data['3PA'], 
 				data['3P'], data['FTM'], data['FTA'], data['FT'], data['OREB'], data['DREB'], 
 				data['REB'], data['AST'], data['TOV'], data['STL'], data['BLK'], data['BLKA'], 
-				data['PF'], data['PFD'], data['PTS'], data['f0']]).T
+				data['PF'], data['PFD'], data['f0']]).T
 	target = np.matrix(data['WIN'])
 	target = target.T
+	games_played = data['GP']
+	wins = data['W']
 
-	return features, target
+	return features, target, data.dtype.names, team_names, games_played, wins
