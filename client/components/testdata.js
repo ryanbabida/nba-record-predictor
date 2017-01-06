@@ -19,7 +19,7 @@ class TestData extends Component {
 
 	getTestData() {
 		$.ajax({
-	      url: 'http://127.0.0.1:5000/api/v1.0/sample',
+	      url: 'http://nba-record-predictor.herokuapp.com/api/v1.0/sample',
 	      dataType: 'json',
 	      cache: false,
 	      success: function(data) {
