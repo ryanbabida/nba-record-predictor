@@ -16,7 +16,7 @@ class Weights extends Component {
 
 	getWeights() {
 		$.ajax({
-	      url: 'http://nba-record-predictor.herokuapp.com/api/v1.0/weights',
+	      url: 'https://nba-record-predictor.herokuapp.com/api/v1.0/weights',
 	      dataType: 'json',
 	      cache: false,
 	      success: function(data) {

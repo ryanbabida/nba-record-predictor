@@ -24,7 +24,7 @@ class Prediction extends Component {
 	handleSubmit(e) {
 		this.setState({
 			games_played: this.refs.GP.value,
-			url: "http://nba-record-predictor.herokuapp.com/api/v1.0/predict?&MIN=" + this.refs.MIN.value + 
+			url: "https://nba-record-predictor.herokuapp.com/api/v1.0/predict?&MIN=" + this.refs.MIN.value + 
 			"&PTS=" + this.refs.PTS.value + "&FGM=" + this.refs.FGM.value + "&FGA=" +
 			this.refs.FGA.value + "&FG=" + this.refs.FGPER.value + "&3PM=" + this.refs.TPM.value + 
 			"&3PA=" + this.refs.TPA.value + "&3P=" + this.refs.TTPER.value + "&FTM=" + 
