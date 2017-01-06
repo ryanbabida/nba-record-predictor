@@ -21976,7 +21976,7 @@
 			key: 'getWeights',
 			value: function getWeights() {
 				$.ajax({
-					url: 'http://127.0.0.1:5000/api/v1.0/weights',
+					url: 'http://nba-record-predictor.herokuapp.com/api/v1.0/weights',
 					dataType: 'json',
 					cache: false,
 					success: function (data) {
@@ -22777,7 +22777,7 @@
 			key: 'getTestData',
 			value: function getTestData() {
 				$.ajax({
-					url: 'http://127.0.0.1:5000/api/v1.0/sample',
+					url: 'http://nba-record-predictor.herokuapp.com/api/v1.0/sample',
 					dataType: 'json',
 					cache: false,
 					success: function (data) {
@@ -34694,7 +34694,7 @@
 			value: function handleSubmit(e) {
 				this.setState({
 					games_played: this.refs.GP.value,
-					url: "http://127.0.0.1:5000/api/v1.0/predict?&MIN=" + this.refs.MIN.value + "&PTS=" + this.refs.PTS.value + "&FGM=" + this.refs.FGM.value + "&FGA=" + this.refs.FGA.value + "&FG=" + this.refs.FGPER.value + "&3PM=" + this.refs.TPM.value + "&3PA=" + this.refs.TPA.value + "&3P=" + this.refs.TTPER.value + "&FTM=" + this.refs.FTM.value + "&FTA=" + this.refs.FTA.value + "&FT=" + this.refs.FT.value + "&OREB=" + this.refs.OREB.value + "&DREB=" + this.refs.DREB.value + "&REB=" + this.refs.REB.value + "&AST=" + this.refs.AST.value + "&TOV=" + this.refs.TOV.value + "&STL=" + this.refs.STL.value + "&BLK=" + this.refs.BLK.value + "&BLKA=" + this.refs.BLKA.value + "&PF=" + this.refs.PF.value + "&PFD=" + this.refs.PFD.value + "&MAR=" + this.refs.MAR.value
+					url: "http://nba-record-predictor.herokuapp.com/api/v1.0/predict?&MIN=" + this.refs.MIN.value + "&PTS=" + this.refs.PTS.value + "&FGM=" + this.refs.FGM.value + "&FGA=" + this.refs.FGA.value + "&FG=" + this.refs.FGPER.value + "&3PM=" + this.refs.TPM.value + "&3PA=" + this.refs.TPA.value + "&3P=" + this.refs.TTPER.value + "&FTM=" + this.refs.FTM.value + "&FTA=" + this.refs.FTA.value + "&FT=" + this.refs.FT.value + "&OREB=" + this.refs.OREB.value + "&DREB=" + this.refs.DREB.value + "&REB=" + this.refs.REB.value + "&AST=" + this.refs.AST.value + "&TOV=" + this.refs.TOV.value + "&STL=" + this.refs.STL.value + "&BLK=" + this.refs.BLK.value + "&BLKA=" + this.refs.BLKA.value + "&PF=" + this.refs.PF.value + "&PFD=" + this.refs.PFD.value + "&MAR=" + this.refs.MAR.value
 				}, function () {
 					$.ajax({
 						url: this.state.url,
