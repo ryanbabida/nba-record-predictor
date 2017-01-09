@@ -46,7 +46,7 @@ class PredictionChart extends Component {
 			            innerSize: '50%',
 			            data: [
 			                ['Wins',   this.props.win],
-			                ['Losses', this.props.loss],
+			                ['Losses', this.props.games_played - this.props.win],
 			                {
 			                    name: '',
 			                    y: 0.2,
