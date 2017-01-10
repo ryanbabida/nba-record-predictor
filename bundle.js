@@ -22018,9 +22018,25 @@
 			value: function render() {
 				return _react2.default.createElement(
 					'div',
-					null,
-					_react2.default.createElement(_weightsbar2.default, { ols_weights: this.state.ols_weights, gd_weights: this.state.gd_weights }),
-					_react2.default.createElement(_gd_error2.default, { gd_err: this.state.gd_err })
+					{ className: 'row' },
+					_react2.default.createElement(
+						'center',
+						null,
+						_react2.default.createElement(
+							'div',
+							{ className: 'col-md-6' },
+							_react2.default.createElement(_weightsbar2.default, { ols_weights: this.state.ols_weights, gd_weights: this.state.gd_weights })
+						)
+					),
+					_react2.default.createElement(
+						'center',
+						null,
+						_react2.default.createElement(
+							'div',
+							{ className: 'col-md-6' },
+							_react2.default.createElement(_gd_error2.default, { gd_err: this.state.gd_err })
+						)
+					)
 				);
 			}
 		}]);

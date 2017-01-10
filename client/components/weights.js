@@ -56,9 +56,17 @@ class Weights extends Component {
 
 	render() {
 		return (
-			<div>
-				<WeightsBarChart ols_weights={this.state.ols_weights} gd_weights={this.state.gd_weights} />
-				<GradDescError gd_err={this.state.gd_err} />
+			<div class="row">
+				<center>
+			 		<div class="col-md-6">
+						<WeightsBarChart ols_weights={this.state.ols_weights} gd_weights={this.state.gd_weights} />
+					</div>
+				</center>
+				<center>
+					<div class="col-md-6">
+						<GradDescError gd_err={this.state.gd_err} />
+					</div>
+				</center>
 			</div>
 		)
 	};
