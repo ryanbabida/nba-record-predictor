@@ -21990,18 +21990,6 @@
 						console.log(err);
 					}
 				});
-				// var _this = this;
-				// this.serverRequest = 
-				//   axios
-				//     .get("http://127.0.0.1:5000/api/v1.0/weights.json")
-				//     .then(function(result) {    
-				//       _this.setState({names: data.names, 
-				//     				ols_weights: data.ols_weights,
-				//     				gd_weights: data.gd_weights,
-				//     				gd_err: data.gd_err,
-
-				//       });
-				//     })
 			}
 		}, {
 			key: 'componentDidMount',
