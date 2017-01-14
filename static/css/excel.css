@@ -33,7 +33,7 @@ th
 
     box-sizing: border-box;
     width: 50px;
-    height: 40px;
+    height: 45px;
     margin: 0;
     padding: 0;
     max-width: 100px;
@@ -41,7 +41,7 @@ th
     border-width: 1px 1px 0 0;
     border-style: solid;
     border-color: #cacaca;
-    overflow: scroll;
+    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
